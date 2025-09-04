@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gatito Virtual</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="app">
+        <div class="background-bits"></div>
+
+        <div class="content-container">
+            <div id="cat-container" class="cat-container">
+                <svg id="kawaii-cat" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                    <ellipse id="cat-body" cx="100" cy="110" rx="70" ry="60" fill="#F8C77E" />
+                    <path d="M55 70 L80 30 L95 70 Z" fill="#F8C77E" />
+                    <path d="M105 70 L120 30 L145 70 Z" fill="#F8C77E" />
+                    <circle cx="80" cy="105" r="6" fill="#4B4B4B" />
+                    <circle cx="120" cy="105" r="6" fill="#4B4B4B" />
+                    <path d="M95 115 Q100 122 105 115" stroke="#4B4B4B" stroke-width="3" fill="none" stroke-linecap="round" />
+                    <circle cx="70" cy="118" r="7" fill="#F9A8D4" opacity="0.8" />
+                    <circle cx="130" cy="118" r="7" fill="#F9A8D4" opacity="0.8" />
+                    <rect x="65" y="150" width="20" height="15" rx="6" fill="#F8C77E" />
+                    <rect x="115" y="150" width="20" height="15" rx="6" fill="#F8C77E" />
+                    <path id="cat-tail" d="M165 135 q15 10 0 25 q-10 10 -20 0" fill="none" stroke="#F8C77E" stroke-width="12" stroke-linecap="round" />
+                    <rect id="cat-blink-1" class="blink-animation" x="74" y="100" width="12" height="12" rx="3" fill="#F8C77E" />
+                    <rect id="cat-blink-2" class="blink-animation" x="114" y="100" width="12" height="12" rx="3" fill="#F8C77E" />
+                </svg>
+            </div>
+
+            <p id="message-text" class="message-text"></p>
+
+            <div class="button-container">
+                <button id="refresh-button" class="button">Otro mensajito ✨</button>
+                <a href="#" id="hug-link" class="button pink-button">Abrazito virtual 🐱💞</a>
+            </div>
+
+            <p class="click-info">Haz clic en el gatito para enviar corazones.</p>
+        </div>
+
+        <div class="radial-gradient"></div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
