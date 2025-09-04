@@ -1,16 +1,18 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Nuevos mensajes más amorosos y de apoyo para Curi
     const messages = [
-        "Eres más fuerte de lo que piensas 💖",
-        "Respira hondo: lo estás haciendo bien ✨",
-        "Poquito a poquito: todo mejora 🐾",
-        "Tu sonrisa cambia el día de alguien ☀️",
-        "Hoy mereces una dosis extra de mimos 💕",
-        "Nada es para siempre: las nubes también pasan ⛅",
-        "Orgulloso de ti por seguir intentándolo 🌸",
-        "Tómate tu tiempo, tú importas 🌟",
-        "Eres luz, aunque hoy no lo sientas 🔆",
-        "Tu corazón es un lugar seguro 🫶",
-    ];
+        "Curi, eres más fuerte de lo que piensas. Sé que puedes con esto. 💖",
+        "Siempre estoy aquí para ti. No estás sola en esto. ✨",
+        "Poquito a poquito, todo mejora. Confío en ti. 🐾",
+        "Tu sonrisa es increíble, Curi. Es un recordatorio de lo especial que eres. ☀️",
+        "Hoy mereces una dosis extra de mimos. Te envío todo mi apoyo. 💕",
+        "Nada es para siempre, las nubes también pasan. Ánimo, Curi. ⛅",
+        "Estoy orgulloso de ti por seguir intentándolo.🌸",
+        "Tómate tu tiempo, tú importas. Estoy a tu lado. 🌟",
+        "Eres luz, aunque ahora no lo sientas. Estoy aquí para recordártelo. 🔆",
+        "Tu corazón es un lugar seguro. Y mi hombro, también. 🫶",
+        "Cada día es una nueva oportunidad para brillar. Y tú brillas mucho, Curi. 🌈"
+    ,];
 
     const catVariants = ["tabby", "white", "gray", "peach"];
     const catPalette = {
@@ -27,10 +29,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const catTail = document.getElementById('cat-tail');
     const catEars = catContainer.querySelectorAll('path');
     const catPaws = catContainer.querySelectorAll('rect');
+    const catBlings = catContainer.querySelectorAll('.blink-animation');
     const backgroundBitsContainer = document.querySelector('.background-bits');
 
     let currentMessage = null;
     let currentVariant = null;
+    let currentMessageIndex = 0; // Se utiliza para mostrar los mensajes en orden
+    let availableVariants = [...catVariants];
 
     // Función de utilidad para elegir un elemento aleatorio sin repetir
     const pick = (arr, avoid) => {
@@ -46,11 +51,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Función para mostrar un nuevo mensaje y cambiar el gatito
     const showNewContent = () => {
-        const newMessage = pick(messages, currentMessage);
-        const newVariant = pick(catVariants, currentVariant);
-        
-        currentMessage = newMessage;
-        currentVariant = newVariant;
+        // Seleccionar el siguiente mensaje de la lista
+        const newMessage = messages[currentMessageIndex];
+        currentMessageIndex = (currentMessageIndex + 1) % messages.length; // Avanzar el índice y reiniciar al final de la lista
 
         // Actualizar el texto del mensaje con una animación
         messageElement.style.opacity = '0';
@@ -62,12 +65,16 @@ document.addEventListener('DOMContentLoaded', () => {
             messageElement.style.transform = 'translateY(0)';
         }, 200);
 
-        // Cambiar el color del gatito
+        // Cambiar el color del gatito sin repetir el anterior
+        const newVariant = pick(availableVariants, currentVariant);
+        currentVariant = newVariant;
+        
         const newFill = catPalette[newVariant];
         catBody.setAttribute('fill', newFill);
         catTail.setAttribute('stroke', newFill);
         catEars.forEach(ear => ear.setAttribute('fill', newFill));
         catPaws.forEach(paw => paw.setAttribute('fill', newFill));
+        catBlings.forEach(bling => bling.setAttribute('fill', newFill));
     };
 
     // Crear las estrellas de fondo
@@ -92,13 +99,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const heart = document.createElement('span');
         heart.textContent = '💗';
-        heart.className = 'heart';
-        heart.style.position = 'absolute';
+        heart.className = 'heart-animation';
         heart.style.left = `${x}px`;
         heart.style.top = `${y}px`;
-        heart.style.transform = 'scale(0.6)';
-        heart.style.transition = 'transform 1.2s ease-out, opacity 1.2s ease-out, top 1.2s ease-out';
-        heart.style.opacity = '1';
 
         catContainer.appendChild(heart);
 
