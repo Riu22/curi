@@ -169,3 +169,90 @@ body {
     0% { transform: translateY(110%) rotate(-10deg); }
     100% { transform: translateY(-10%) rotate(10deg); }
 }
+
+/* Estilos para los corazones flotantes */
+.heart {
+    position: fixed;
+    bottom: -20px;
+    font-size: 20px;
+    opacity: 0;
+    pointer-events: none; /* Evita que el corazón interfiera con los clics */
+    animation: floatUp 4s ease-out forwards;
+}
+
+/* Animación para que los corazones floten hacia arriba y se desvanezcan */
+@keyframes floatUp {
+    0% {
+        transform: translateY(0);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------ */
+
+/* Estilos para el modal */
+.modal-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background-color: #f6e2dd; /* Un rosa pastel, similar a tu paleta */
+    padding: 30px 50px;
+    border-radius: 20px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-size: 24px;
+    color: #e85a4f; /* Un rojo cálido para el texto */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    transform: scale(0.8);
+    animation: modalPop 0.3s cubic-bezier(0.68, -0.55, 0.27, 1.55) forwards;
+}
+
+.modal-content p {
+    margin: 0;
+    font-weight: bold;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #e85a4f;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.close-button:hover {
+    transform: scale(1.2);
+}
+
+/* Animación para el efecto "pop-in" del modal */
+@keyframes modalPop {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
