@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Tu sonrisa cambia el día de alguien ☀️",
         "Hoy mereces una dosis extra de mimos 💕",
         "Nada es para siempre: las nubes también pasan ⛅",
-        "Orgullx de ti por seguir intentándolo 🌸",
+        "Orgulloso de ti por seguir intentándolo 🌸",
         "Tómate tu tiempo, tú importas 🌟",
         "Eres luz, aunque hoy no lo sientas 🔆",
         "Tu corazón es un lugar seguro 🫶",
