@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         "Estoy orgulloso de ti por seguir intentándolo.🌸",
         "Tómate tu tiempo, tú importas. Estoy a tu lado. 🌟",
         "Eres luz, aunque ahora no lo sientas. Estoy aquí para recordártelo. 🔆",
-        "Tu corazón es un lugar seguro. Y mi hombro, también. 🫶",
+        "Tu corazón es un lugar seguro. Y mi corazon, también. 🫶",
         "Cada día es una nueva oportunidad para brillar. Y tú brillas mucho, Curi. 🌈"
     ,];
 
